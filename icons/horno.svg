@@ -1,0 +1,8 @@
+<svg id="oven" xmlns="http://www.w3.org/2000/svg" width="90.117" height="90.117" viewBox="0 0 90.117 90.117">
+  <path id="Trazado_24" data-name="Trazado 24" d="M87.477,0H2.64A2.64,2.64,0,0,0,0,2.64V87.477a2.64,2.64,0,0,0,2.64,2.64H87.477a2.64,2.64,0,0,0,2.64-2.64V2.64A2.64,2.64,0,0,0,87.477,0Zm-2.64,84.837H5.28V27.9h6.031V76.165a2.64,2.64,0,0,0,2.64,2.64H76.166a2.64,2.64,0,0,0,2.64-2.64V27.9h6.031ZM16.592,73.525V27.9H73.525V73.525Zm68.245-50.9H5.28V5.28H84.837Z" fill="#efefef"/>
+  <circle id="Elipse_3" data-name="Elipse 3" cx="2.64" cy="2.64" r="2.64" transform="translate(16.967 11.312)" fill="#efefef"/>
+  <circle id="Elipse_4" data-name="Elipse 4" cx="2.64" cy="2.64" r="2.64" transform="translate(50.902 11.312)" fill="#efefef"/>
+  <circle id="Elipse_5" data-name="Elipse 5" cx="2.64" cy="2.64" r="2.64" transform="translate(33.935 11.312)" fill="#efefef"/>
+  <circle id="Elipse_6" data-name="Elipse 6" cx="2.64" cy="2.64" r="2.64" transform="translate(67.869 11.312)" fill="#efefef"/>
+  <path id="Trazado_25" data-name="Trazado 25" d="M170.764,192.8H131.173a2.64,2.64,0,1,0,0,5.28h39.591a2.64,2.64,0,0,0,0-5.28Z" transform="translate(-105.91 -158.865)" fill="#efefef"/>
+</svg>
