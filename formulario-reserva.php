@@ -127,7 +127,12 @@ function gcs_reserva_limpieza_func( $atts ){
             </div>
           </div>
           <h4>Tipo de Limpieza</h4>
-          <p>Limpieza Recomendada: <span id="limpieza-recomendada"></span</p>
+          <p>Conoce más de las caractarísticas de cada limpieza:
+            <a href="https://greencservices.com/caracteristicas-de-la-limpieza-basica-eco-green/">Limpieza básica eco green</a>,
+            <a href="https://greencservices.com/caracteristicas-de-la-limpieza-basica-extendida/">Limpieza básica extendida</a> y
+            <a href="https://greencservices.com/caracteristicas-de-la-limpieza-limpieza-profunda-8-horas/">Limpieza extendida 8 horas</a>
+          </p>
+          <p>Limpieza Recomendada: <span id="limpieza-recomendada"></span></p>
           <div class="tipo-limpieza radios">
             <?php
               $args = array(
