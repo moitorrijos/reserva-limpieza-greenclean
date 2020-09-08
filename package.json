@@ -4,6 +4,7 @@
   "description": "Este plugin utiliza un código corto (shortcode) que genera un formulario para hacer reservas en línea. Este formulario pasa la data a WooCommerce para luego hacer el pago por la pasarela de su elección.",
   "main": "index.js",
   "scripts": {
+    "sass": "node-sass sass/ -o ./css/ --source-map true --output-style expanded --indent-type tab --indent-width 1 -w",
     "build": "webpack",
     "watch": "webpack --watch",
     "clean": "rm -rf dist",
@@ -15,6 +16,7 @@
   "devDependencies": {
     "css-loader": "^3.6.0",
     "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.14.1",
     "parcel-bundler": "^1.12.4",
     "sass": "^1.26.10",
     "webpack": "^4.44.0",

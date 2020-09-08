@@ -108,6 +108,13 @@ body #cms-page, #site-content
   grid-template-columns: repeat(3, 1fr)
   column-gap: 20px
 
+  a.caracteristicas
+    display: block
+    padding: 0.5em
+    font-size: 0.75em
+    line-height: 1.2
+    color: darken($secondary-color, 10%)
+
   @media (max-width: 700px)
     grid-template-columns: repeat(2, 1fr)
     row-gap: 40px
@@ -275,7 +282,10 @@ form
       font-weight: normal
 
 .calendar
-  padding: 3em
+  padding: 0
+  max-width: 540px
+  height: auto
+  margin-bottom: 2rem
 
   @media (max-width: 700px)
     padding: 0
@@ -284,6 +294,12 @@ table.fc-scrollgrid.fc-scrollgrid.fc-scrollgrid
   box-shadow: 0 3px 6px rgba(0,0,0,0.15)
   border: 0
   margin: 1em 0 0
+
+  td
+    height: 74px
+
+  thead td
+    height: auto
 
 a.fc-daygrid-day-number, a.fc-col-header-cell-cushion
   text-decoration: none
@@ -359,6 +375,19 @@ td.fc-daygrid-day.fc-day.fc-day-disabled
 .fc-button-primary.fc-button-primary.fc-button-primary:disabled
   opacity: 0.25
 
+.hour-buttons
+  margin: 4rem 0 2rem
+  display: flex
+  flex-flow: row wrap
+  gap-between: 40px
+
+  label
+    padding: 2rem 3rem
+    margin-right: 40px
+
+    &:last-child
+      margin-right: 0
+
 .date-selected.date-selected.date-selected
   background-color: lighten($secondary-color, 40%)
 
@@ -375,3 +404,42 @@ button.fc-button.fc-button-primary
   display: flex
   align-items: center
   justify-content: center
+
+.error-message-reserva
+  background-color: lighten($danger-color, 50%)
+  border: 1px solid $danger-color
+  color: $danger-color
+  position: absolute
+  padding: 2rem
+  line-height: 1.1
+  top: 105%
+  left: 0
+  right: 0
+
+.animate-error-message
+  animation-duration: 0.75s
+  animation-fill-mode: both
+  animation-name: shake
+
+.sending-data
+	background-size: 420px
+	animation-duration: 1.5s
+	animation-fill-mode: forwards
+	animation-iteration-count: infinite
+	animation-timing-function: linear
+	animation-name: loadingSubmit
+	background-image: linear-gradient(to right, $secondary-color, lighten($secondary-color, 25%), $secondary-color)
+
+@keyframes loadingSubmit
+  0%
+    background-position-x: 0
+  100%
+    background-position-x: 420px
+
+@keyframes shake
+  from, to
+    transform: translate3d(0, 0, 0)
+  10%, 30%, 50%, 70%, 90%
+    transform: translate3d(-10px, 0, 0)
+  20%, 40%, 60%, 80%
+    transform: translate3d(10px, 0, 0)

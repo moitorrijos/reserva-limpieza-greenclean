@@ -4,7 +4,7 @@ add_shortcode( 'gcs_reserva_limpieza', 'gcs_reserva_limpieza_func' );
 
 function gcs_reserva_limpieza_func( $atts ){
   // enqueue javascript and css here
-  wp_enqueue_style( 'gcs_reserva_limpieza_css', plugin_dir_url(__FILE__).'dist/main.css', array(), '05', 'screen' );
+  wp_enqueue_style( 'gcs_reserva_limpieza_css', plugin_dir_url(__FILE__).'css/main.css', array(), '05', 'screen' );
   wp_enqueue_style( 'gcs_calendar_css', plugin_dir_url(__FILE__).'dist/calendar.css', array(), '001', 'screen' );
   wp_enqueue_script( 'gcs_reserva_limpieza_js', plugin_dir_url(__FILE__).'dist/main.js', array(), '05', true );
   wp_localize_script( 'gcs_reserva_limpieza_js', 'gcs_reserva_limpieza', array(
@@ -127,11 +127,6 @@ function gcs_reserva_limpieza_func( $atts ){
             </div>
           </div>
           <h4>Tipo de Limpieza</h4>
-          <p>Conoce más de las caractarísticas de cada limpieza:
-            <a href="https://greencservices.com/caracteristicas-de-la-limpieza-basica-eco-green/">Limpieza básica eco green</a>,
-            <a href="https://greencservices.com/caracteristicas-de-la-limpieza-basica-extendida/">Limpieza básica extendida</a> y
-            <a href="https://greencservices.com/caracteristicas-de-la-limpieza-limpieza-profunda-8-horas/">Limpieza extendida 8 horas</a>
-          </p>
           <p>Limpieza Recomendada: <span id="limpieza-recomendada"></span></p>
           <div class="tipo-limpieza radios">
             <?php
@@ -167,6 +162,15 @@ function gcs_reserva_limpieza_func( $atts ){
               endwhile;
               wp_reset_query();
             ?>
+            <a href="https://greencservices.com/caracteristicas-de-la-limpieza-basica-eco-green/" class="caracteristicas">
+              Ver características limpieza eco green. &raquo;
+            </a>
+            <a href="https://greencservices.com/caracteristicas-de-la-limpieza-basica-extendida/" class="caracteristicas">
+              Ver características limpieza básica extendida &raquo;
+            </a>
+            <a href="https://greencservices.com/caracteristicas-de-la-limpieza-limpieza-profunda-8-horas/" class="caracteristicas">
+              Ver caracteristicas limpieza profunda 8 horas &raquo;
+            </a>
           </div>
           <h4>Servicios Extra</h4>
           <p>
