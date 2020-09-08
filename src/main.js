@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   habitaciones.addEventListener('change', () => {
     Array.from(profunda8horas).forEach(input => {
-      console.log(input.checked)
+      input.checked = false
     })
   })
   

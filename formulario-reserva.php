@@ -147,6 +147,7 @@ function gcs_reserva_limpieza_func( $atts ){
                     <input
                       type="radio"
                       name="tipo-limpieza"
+                      class="<?php if ( get_field('area') ) echo 'input-profunda-8-horas'; ?>"
                       id="<?php echo get_post_meta( get_the_ID(), 'selector_id', true ); ?>"
                       value="<?php echo the_title(); ?>"
                       <?php if(get_post_meta( get_the_ID(), 'checked', true )) echo 'checked'; ?>
@@ -263,11 +264,9 @@ function gcs_reserva_limpieza_func( $atts ){
             <p>Total:</p>
             <p id="reserva-limpieza-total"></p>
           </div>
-          <!-- TODO: Agregar animación de enviando. -->
           <button id="ir-a-caja">Reservar</button>
           <p class="error-message-reserva hidden-button"></p>
         </div>
-        <!-- TODO: Agregar mensaje de error cuando envía sin fechas y al recibir error del servidor. -->
       </div>
     </div>
     <script>

@@ -30,7 +30,10 @@ export default function getPriceData(allSelects, allInputs, quantity) {
 
   const roomPrices = getRoomPriceId(habitaciones, banos)
   const allPrices = optionPrices.concat(inputPrices)
-  allPrices.push(parseFloat(roomPrices.precio))
+
+  if (inputsChecked[0].className !== 'input-profunda-8-horas') {
+    allPrices.push(parseFloat(roomPrices.precio))
+  }
 
   const reducer = (accumulator, currentValue) => accumulator + currentValue
   const price = parseFloat(allPrices.reduce(reducer)).toFixed(2)
