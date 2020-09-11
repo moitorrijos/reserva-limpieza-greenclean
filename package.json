@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "sass": "node-sass sass/ -o ./css/ --source-map true --output-style expanded --indent-type tab --indent-width 1 -w",
+    "browsersync": "browser-sync start --proxy 'greenclean.test' --files '**/*' --no-open",
+    "watch": "npm run sass & npm run watch:js & npm run browsersync",
     "build": "webpack",
-    "watch": "webpack --watch",
+    "watch:js": "webpack --watch",
     "clean": "rm -rf dist",
     "bundle": "dir-archiver --src . --dest ../reserva-limpieza-greenclean.zip --exclude .DS_Store .stylelintrc.json .sassrc .eslintrc .git .gitattributes .github .gitignore README.md composer.json composer.lock node_modules package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map"
   },

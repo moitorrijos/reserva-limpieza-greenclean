@@ -16,6 +16,8 @@ defined( 'ABSPATH' ) || exit;
 
 require __DIR__ . '/vendor/autoload.php';
 
+include( plugin_dir_path( __FILE__ ) . 'array_flatten.php');
+include( plugin_dir_path( __FILE__ ) . 'get_cleaning_dates.php');
 include( plugin_dir_path( __FILE__ ) . 'register_my_session.php' );
 include( plugin_dir_path( __FILE__ ) . 'register-limpieza-cpt.php');
 include( plugin_dir_path( __FILE__ ) . 'svg-inliner.php' );

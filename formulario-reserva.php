@@ -4,11 +4,14 @@ add_shortcode( 'gcs_reserva_limpieza', 'gcs_reserva_limpieza_func' );
 
 function gcs_reserva_limpieza_func( $atts ){
   // enqueue javascript and css here
+  $limpiezas = get_cleaning_dates();
+  var_export( $limpiezas );
   wp_enqueue_style( 'gcs_reserva_limpieza_css', plugin_dir_url(__FILE__).'css/main.css', array(), '07', 'screen' );
   wp_enqueue_style( 'gcs_calendar_css', plugin_dir_url(__FILE__).'dist/calendar.css', array(), '001', 'screen' );
   wp_enqueue_script( 'gcs_reserva_limpieza_js', plugin_dir_url(__FILE__).'dist/main.js', array(), '05', true );
   wp_localize_script( 'gcs_reserva_limpieza_js', 'gcs_reserva_limpieza', array(
     'habitaciones'  => array(),
+    'limpiezas'     => $limpiezas,
     'ajaxurl'       => admin_url('admin-ajax.php'),
     'security'      => wp_create_nonce('gcs_reserva_nonce'),
     'redirect'      => wc_get_checkout_url()
@@ -280,26 +283,33 @@ function gcs_reserva_limpieza_func( $atts ){
     </div>
     <script>
       document.addEventListener('DOMContentLoaded', () => {
-    <?php
-      $args = array(
-        'post_type'       => 'product',
-        'posts_per_page'  => -1,
-        'product_cat'     => 'habitaciones',
-        'orderby'         => 'title',
-        'order'           => 'ASC'
-      );
-      $ubicacion = new WP_Query($args);
-      while ( $ubicacion->have_posts() ) : $ubicacion->the_post();
+        <?php
+          $args = array(
+            'post_type'       => 'product',
+            'posts_per_page'  => -1,
+            'product_cat'     => 'habitaciones',
+            'orderby'         => 'title',
+            'order'           => 'ASC'
+          );
+          $ubicacion = new WP_Query($args);
+          while ( $ubicacion->have_posts() ) : $ubicacion->the_post();
         ?>
+        /**
+         * Popula el arreglo habitaciones con el WP_Query
+         * a los productos de categoría habitaciones
+         * para tener sus precios y compararlos
+         * con la selección del usuario de
+         * habitaciones y baños.
+         */
           gcs_reserva_limpieza.habitaciones.push({
             habitaciones: "<?php echo get_the_title(); ?>",
             precio: "<?php echo get_post_meta( get_the_ID(), '_price', true ); ?>",
             dataId: "<?php echo get_the_ID(); ?>"
           })
-          <?php
+        <?php
           endwhile;
           wp_reset_query();
-          ?>
+        ?>
       })
     </script>
   <?php

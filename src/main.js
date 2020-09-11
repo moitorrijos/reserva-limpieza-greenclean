@@ -43,8 +43,13 @@ document.addEventListener('DOMContentLoaded', () => {
   })
   
   cleanArea.addEventListener('change', () => {
-    selectSanitization(cleanArea.value)
-    recommendedCleaning(cleanArea.value)
+    const deepCleaning = Array.from(profunda8horas).filter( input => input.checked )[0]
+    if (deepCleaning) {
+      recommendedCleaning(cleanArea.value, deepCleaning)
+    } else {
+      recommendedCleaning(cleanArea.value, false)
+      selectSanitization(cleanArea.value)
+    }
   })
 
   document.getElementById('ir-a-caja').addEventListener('click', noDates)
