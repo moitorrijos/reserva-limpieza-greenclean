@@ -7,7 +7,7 @@
  * Author URI:      https://moitorrijos.com
  * Text Domain:     reserva-limpieza-greenclean
  * Domain Path:     /languages
- * Version:         3
+ * Version:         3.1
  *
  * @package         Reserva_Limpieza_Greenclean
  */
