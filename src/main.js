@@ -19,6 +19,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const values = getValues(allInputs, allSelects)
 
   calendar(allSelects, allInputs)
+
+  const eventoReservado = Array.from(document.querySelectorAll('a.fc-daygrid-event'))
+  eventoReservado.forEach( evento => evento.classList.add('evento-reservado') )
+  
   recommendedCleaning(cleanArea.value)
   summaryHeader(values.select)
   summaryServices(values.input)

@@ -12,7 +12,13 @@ export default function calendar(allSelects, allInputs) {
   const currentDay = new Date()
   let days = []
   moment.locale('es')
-
+  const reservedDates = gcs_reserva_limpieza.limpiezas.map(date => {
+    return {
+      title: "Reservado",
+      start: date,
+      allDay: true
+    }
+  })
   const calendar = new Calendar(calendarEl, {
     plugins: [ dayGridPlugin, interactionPlugin, momentPlugin ],
     locale: esLocale,
@@ -30,6 +36,7 @@ export default function calendar(allSelects, allInputs) {
     validRange: {
       start: currentDay
     },
+    events: reservedDates,
     dateClick(info) {
       const beforeInfoEvents = calendar.getEvents()
       const eventsThisDay = beforeInfoEvents.filter(event => event.startStr === info.dateStr )
@@ -41,13 +48,15 @@ export default function calendar(allSelects, allInputs) {
         allDay: true
       })
       const events = calendar.getEvents()
-      days = events.map(event => event.startStr)
+      const myCleaningDays = events.filter( event => event.title !== "Reservado" )
+      days = myCleaningDays.map(event => event.startStr)
       summaryDates(days)
       getPriceData(allSelects, allInputs, days.length)
     },
     eventClick(info) {
       const events = calendar.getEvents()
-      const event = events.filter(event => event.startStr === info.event.startStr)[0]
+      const event = events.filter(event => event.startStr === info.event.startStr && event.title !== "Reservado")[0]
+      if (info.event.title === "Reservado") return
       event.remove()
       events.splice(events.indexOf(event), 1)
       days = events.map(event => event.startStr)
@@ -55,6 +64,6 @@ export default function calendar(allSelects, allInputs) {
       getPriceData(allSelects, allInputs, days.length)
     }
   })
-
+  
   calendar.render()
 }

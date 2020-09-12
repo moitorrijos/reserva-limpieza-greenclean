@@ -352,9 +352,15 @@ table.fc-col-header, table.fc-scrollgrid-sync-table
     border-radius: 0
     background-color: $secondary-color
     text-align: center
+    
+    &.evento-reservado
+      background-color: lighten($danger-color, 15%)
+      opacity: 0.8
+      cursor: not-allowed
 
   &:hover
     background-color: lighten($font-color, 50%)
+
 
 td.fc-daygrid-day.fc-day.fc-day-disabled 
   .fc-daygrid-day-frame.fc-daygrid-day-frame.fc-daygrid-day-frame

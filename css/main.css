@@ -430,6 +430,12 @@ table.fc-col-header, table.fc-scrollgrid-sync-table {
 	text-align: center;
 }
 
+.fc-daygrid-day-frame.fc-daygrid-day-frame.fc-daygrid-day-frame .fc-daygrid-event.evento-reservado {
+	background-color: #ff5f5f;
+	opacity: 0.8;
+	cursor: not-allowed;
+}
+
 .fc-daygrid-day-frame.fc-daygrid-day-frame.fc-daygrid-day-frame:hover {
 	background-color: #fcfcfc;
 }

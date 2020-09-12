@@ -24,23 +24,39 @@ function get_cleaning_dates() {
     return trim( $date );
   }, $cleaning_dates );
 
+  // Convert strings to dates
+  $cleaning_dates = array_map( function( $date ) {
+    $date = date_create( $date );
+    return $date;
+  }, $cleaning_dates );
+
+  // Filter out dates before today
+  $cleaning_dates = array_filter( $cleaning_dates, function( $date ) {
+    $today = new DateTime();
+    if ( $date->getTimestamp() > $today->getTimestamp() ) {
+      return $date;
+    }
+  } );
+
+  // Format date to string in Y-m-d format.
+  $cleaning_dates = array_map( function( $date ) {
+    $date = $date->format( 'Y-m-d' );
+    return $date;
+  }, $cleaning_dates );
+  
   // Only take duplicated dates into account
   $duplicate_dates = array();
 
-  $count = count( $cleaning_dates );
-  for ($i = 0; $i < $count; $i++) {
-    $date = $cleaning_dates[$i];
-    for ($j = 0; $j < $count; $j++) {
-      if ( $date === $cleaning_dates[$j] ) {
-        array_push( $duplicate_dates, $date );
-      }
+  // Set the reservation limit number
+  $reservation_limit = 2;
+
+  $duplicates = array_count_values( $cleaning_dates );
+  $duplicate_dates = array();
+  foreach ( $duplicates as $date => $count ) {
+    if ( $count === $reservation_limit ) { 
+      array_push( $duplicate_dates, $date ); 
     }
   }
 
-  // Filter out duplicated dates
-  $reserved_dates = array_unique( $duplicate_dates );
-  $reserved_dates = array_values( $reserved_dates );
-  // Convert dates format to Ymd
-
-  return $reserved_dates;
+  return $duplicate_dates;
 }
