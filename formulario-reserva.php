@@ -248,8 +248,8 @@ function gcs_reserva_limpieza_func( $atts ){
                 type="radio"
                 class="horario-limpieza"
                 name="horario-limpieza"
-                id="hora-130-am"
-                value="1:30 p.m."
+                id="hora-100-pm"
+                value="1:00 p.m."
               >
               <p>
                 1:00 p.m.
