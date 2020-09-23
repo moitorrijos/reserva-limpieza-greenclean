@@ -1,5 +1,5 @@
 
-export default function selectCleaningTime(habValue) {
+export default function selectCleaningType(habValue) {
   let hab
   switch (habValue) {
     case "1 habitación":

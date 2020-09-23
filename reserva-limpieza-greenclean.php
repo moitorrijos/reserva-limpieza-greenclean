@@ -7,12 +7,13 @@
  * Author URI:      https://moitorrijos.com
  * Text Domain:     reserva-limpieza-greenclean
  * Domain Path:     /languages
- * Version:         3.1
+ * Version:         3.2
  *
  * @package         Reserva_Limpieza_Greenclean
  */
 
 defined( 'ABSPATH' ) || exit;
+define ( 'GCS_Version', '3.3' );
 
 require __DIR__ . '/vendor/autoload.php';
 
