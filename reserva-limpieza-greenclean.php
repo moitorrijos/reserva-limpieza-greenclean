@@ -13,7 +13,7 @@
  */
 
 defined( 'ABSPATH' ) || exit;
-define ( 'GCS_Version', '3.3' );
+define ( 'GCS_Version', '3.4' );
 
 require __DIR__ . '/vendor/autoload.php';
 

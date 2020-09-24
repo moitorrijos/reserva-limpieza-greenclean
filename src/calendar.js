@@ -56,7 +56,7 @@ export default function calendar(allSelects, allInputs) {
     eventClick(info) {
       const events = calendar.getEvents()
       const event = events.filter(event => event.startStr === info.event.startStr && event.title !== "Reservado")[0]
-      if (info.event.title === "Reservado") return
+      if ( info.event.title === "Reservado" ) return
       event.remove()
       events.splice(events.indexOf(event), 1)
       days = events.map(event => event.startStr)

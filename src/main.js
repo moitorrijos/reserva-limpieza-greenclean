@@ -54,10 +54,10 @@ document.addEventListener('DOMContentLoaded', () => {
     summaryServices(values.input)
     getPriceData(allSelects, allInputs)
     selectCleaningType(habitaciones.value)
-    getHours()
+    getHours(allSelects, allInputs)
   })
 
-  getHours()  
+  getHours(allSelects, allInputs)  
 
   document.getElementById('ir-a-caja').addEventListener('click', noDates)
 

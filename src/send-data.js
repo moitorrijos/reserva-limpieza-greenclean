@@ -1,5 +1,6 @@
 import getHours from './get-hours.js'
 const errorMessage = document.querySelector('.error-message-reserva')
+const horarioLimpieza = document.querySelectorAll('.horario-limpieza')
 
 export default function sendData(payButton, gcs_reserva_limpieza, allIds, daysCount, days) {
   payButton.classList.add('sending-data')
@@ -11,7 +12,7 @@ export default function sendData(payButton, gcs_reserva_limpieza, allIds, daysCo
     errorMessage.classList.remove('hidden-button')
     errorMessage.classList.add('animate-error-message')
   }
-  const hour = getHours()
+  const hour = Array.from(horarioLimpieza).filter(input => input.checked)[0].value
   jQuery.ajax({
     type : "post",
     dataType : "json",
