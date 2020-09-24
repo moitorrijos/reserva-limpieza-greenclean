@@ -59,7 +59,8 @@ export default function calendar(allSelects, allInputs) {
       if ( info.event.title === "Reservado" ) return
       event.remove()
       events.splice(events.indexOf(event), 1)
-      days = events.map(event => event.startStr)
+      const myCleaningDays = events.filter( event => event.title !== "Reservado" )
+      days = myCleaningDays.map(event => event.startStr)
       summaryDates(days)
       getPriceData(allSelects, allInputs, days.length)
     }

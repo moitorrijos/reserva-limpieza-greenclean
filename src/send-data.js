@@ -1,4 +1,3 @@
-import getHours from './get-hours.js'
 const errorMessage = document.querySelector('.error-message-reserva')
 const horarioLimpieza = document.querySelectorAll('.horario-limpieza')
 

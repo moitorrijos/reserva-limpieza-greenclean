@@ -27,7 +27,10 @@ export default function getIds(allSelects, allInputs) {
   })
 
   const roomIds = getRoomPriceId(habitaciones, banos)
-  optionIds.push(roomIds.id)
+
+  if (inputsChecked[0].className !== 'input-profunda-8-horas') {
+    optionIds.push(roomIds.id)
+  }
   
   const allIds = optionIds.concat(inputIds)
 

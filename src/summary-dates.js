@@ -24,7 +24,7 @@ export default function summaryDates(days) {
   const daysCount = daysList.length
 
   if (!daysList.length) {
-    console.log('Por favor seleccione por lo menos una fecha en el calendario.')
+    noDates()
     return
   } else {
     payButton.addEventListener('click', () => sendData(payButton, gcs_reserva_limpieza, allIds, daysCount, days))
