@@ -180,7 +180,7 @@ body #cms-page, #site-content {
 	margin: 0;
 	text-align: center;
 	border-radius: 8px;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
 	position: relative;
 	text-transform: uppercase;
 }
@@ -256,6 +256,16 @@ body #cms-page, #site-content {
 	fill: white;
 }
 
+.radios input[type="radio"][disabled], .radios input[type="checkbox"][disabled] {
+	cursor: not-allowed;
+	background-color: #d5d5d5;
+}
+
+.radios input[type="radio"][disabled]:hover, .radios input[type="checkbox"][disabled]:hover {
+	background-color: #d5d5d5;
+	color: #7C7C7C;
+}
+
 .radios input[type="radio"]:before, .radios input[type="checkbox"]:before {
 	content: '';
 }
@@ -301,7 +311,7 @@ form input, form select {
 	width: 100%;
 	border: 0;
 	border-radius: 8px;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
 	padding: 8px 10px;
 	color: #636363;
 	font-size: 0.9em;

@@ -17,6 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const cleanArea = document.getElementById('clean-area')
   const habitaciones = document.getElementById('cantidad-habitaciones')
   const profunda8horas = document.querySelectorAll('.profunda-8-horas')
+  const general4horas = document.getElementById('general-4-horas')
+  const horario1pm = document.getElementById('hora-100-pm')
   const values = getValues(allInputs, allSelects)
 
   calendar(allSelects, allInputs)
@@ -55,6 +57,9 @@ document.addEventListener('DOMContentLoaded', () => {
     getPriceData(allSelects, allInputs)
     selectCleaningType(habitaciones.value)
     getHours(allSelects, allInputs)
+    if (!general4horas.checked) {
+      horario1pm.disabled = true
+    }
   })
 
   getHours(allSelects, allInputs)  
