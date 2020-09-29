@@ -218,6 +218,13 @@ function gcs_reserva_limpieza_func( $atts ){
               endwhile;
               wp_reset_query();
             ?>
+            <p></p>
+            <p></p>
+            <p>
+              <a href="https://greencservices.com/caracteristicas-de-la-sanitizacion-y-nebulizacion-en-frio/">
+                Ver Características de la Neublización en Frío.
+              </a>
+            </p>
           </div>
           <h4>Agendar Próxima Visita</h4>
           <p>

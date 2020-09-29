@@ -18,7 +18,7 @@ function gcs_crear_post_limpieza($order_id) {
 
     //Change date format from $fechas array
     foreach ($fechas as &$fecha) {
-      $fecha = DateTime::createFromFormat('Y-m-d', $fecha)->format('j F Y');
+      $fecha = DateTime::createFromFormat('Ymd', $fecha)->format('j F Y');
     }
 
     unset($fecha);
@@ -65,7 +65,7 @@ function detalles_fecha_horario_reserva( $order, $sent_to_admin, $plain_text, $e
 
     //Change date format from $fechas array
     foreach ($fechas as &$fecha) {
-      $fecha = DateTime::createFromFormat('Y-m-d', $fecha)->format('j F Y');
+      $fecha = DateTime::createFromFormat('Ymd', $fecha)->format('j F Y');
     }
 
     unset($fecha);

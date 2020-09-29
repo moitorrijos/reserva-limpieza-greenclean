@@ -211,6 +211,12 @@ body #cms-page, #site-content {
 	font-size: 0.75em;
 }
 
+.radios p {
+	margin: 0;
+	padding-left: 12px;
+	font-size: 0.9em;
+}
+
 .radios input[type="radio"], .radios input[type="checkbox"] {
 	box-shadow: none;
 	appearance: none;

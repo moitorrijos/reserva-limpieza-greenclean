@@ -1,5 +1,5 @@
-import calendar from './calendar.js'
 import summaryServices from './summary-services.js'
+import calendar from './calendar.js'
 import summaryHeader from './summary-header.js'
 import getValues from './all-values.js'
 import getPriceData from './get-price-data.js'
@@ -9,6 +9,8 @@ import selectCleaningType from './select-cleaning-type.js'
 import isDeepCleaningChecked from './is-deep-cleaning-checked.js'
 import noDates from './no-dates.js'
 import getHours from './get-hours.js'
+import getIds from './get-ids.js'
+import sendData from './send-data.js'
 
 document.addEventListener('DOMContentLoaded', () => {
   const formularioReserva = document.forms['formulario-reserva']
@@ -20,6 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const general4horas = document.getElementById('general-4-horas')
   const horario1pm = document.getElementById('hora-100-pm')
   const values = getValues(allInputs, allSelects)
+  const fechasList = document.querySelector('ul.fechas')
+  const payButton = document.getElementById('ir-a-caja')
+  let days = []
+  let allIds = []
 
   calendar(allSelects, allInputs)
 
@@ -62,8 +68,32 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   })
 
-  getHours(allSelects, allInputs)  
+  getHours(allSelects, allInputs)
 
-  document.getElementById('ir-a-caja').addEventListener('click', noDates)
+  const config = { childList: true, subtree: true };
+
+  const newDaysArray = function(mutationsList) {
+    mutationsList.forEach(mutation => {
+      if (mutation.type === 'childList') {
+        days = Array.from(mutation.target.children).map(child => child.dataset.day)
+        allIds = getIds(allSelects, allInputs)
+      }
+    })
+  };
+
+  // Create an observer instance linked to the newDaysArray function
+  const observer = new MutationObserver(newDaysArray);
+
+  // The newDaysArray fires whenever there is a "mutation" in fechasList (ul.fechas element)
+  observer.observe(fechasList, config);
+
+  payButton.addEventListener('click', () => {
+    if (days.length === 0 || allIds.length === 0) {
+      noDates()
+      return
+    } else {
+      sendData(payButton, gcs_reserva_limpieza, allIds, days.length, days)
+    }
+  })
 
 })
