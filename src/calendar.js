@@ -31,7 +31,7 @@ export default function calendar(allSelects, allInputs) {
     plugins: [ dayGridPlugin, interactionPlugin, momentPlugin ],
     locale: esLocale,
     selectable: true,
-    fixedWeekCount: false,
+    fixedWeekCount: true,
     contentHeight: "auto",
     height: "auto",
     titleFormat: 'MMMM YYYY',
