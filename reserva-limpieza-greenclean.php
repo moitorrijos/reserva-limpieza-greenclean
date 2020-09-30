@@ -7,17 +7,18 @@
  * Author URI:      https://moitorrijos.com
  * Text Domain:     reserva-limpieza-greenclean
  * Domain Path:     /languages
- * Version:         3.5
+ * Version:         3.6
  *
  * @package         Reserva_Limpieza_Greenclean
  */
 
 defined( 'ABSPATH' ) || exit;
-define ( 'GCS_Version', '3.5' );
+define ( 'GCS_Version', '3.6' );
 
 require __DIR__ . '/vendor/autoload.php';
 
 include( plugin_dir_path( __FILE__ ) . 'array_flatten.php');
+include( plugin_dir_path( __FILE__ ) . 'get_gcs_holidays.php');
 include( plugin_dir_path( __FILE__ ) . 'get_cleaning_dates.php');
 include( plugin_dir_path( __FILE__ ) . 'register_my_session.php' );
 include( plugin_dir_path( __FILE__ ) . 'register-limpieza-cpt.php');

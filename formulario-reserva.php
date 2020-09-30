@@ -4,12 +4,14 @@ add_shortcode( 'gcs_reserva_limpieza', 'gcs_reserva_limpieza_func' );
 
 function gcs_reserva_limpieza_func( $atts ){
   // enqueue javascript and css here
+  $gcs_holidays = get_gcs_holidays();
   $limpiezas = get_cleaning_dates();
   wp_enqueue_style( 'gcs_reserva_limpieza_css', plugin_dir_url(__FILE__).'css/main.css', array(), GCS_Version, 'screen' );
   wp_enqueue_style( 'gcs_calendar_css', plugin_dir_url(__FILE__).'dist/calendar.css', array(), '02', 'screen' );
   wp_enqueue_script( 'gcs_reserva_limpieza_js', plugin_dir_url(__FILE__).'dist/main.js', array(), GCS_Version, true );
   wp_localize_script( 'gcs_reserva_limpieza_js', 'gcs_reserva_limpieza', array(
     'habitaciones'  => array(),
+    'gcs_holidays'  => $gcs_holidays,
     'limpiezas'     => $limpiezas,
     'ajaxurl'       => admin_url('admin-ajax.php'),
     'security'      => wp_create_nonce('gcs_reserva_nonce'),

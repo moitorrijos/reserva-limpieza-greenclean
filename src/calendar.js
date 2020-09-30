@@ -12,13 +12,21 @@ export default function calendar(allSelects, allInputs) {
   const currentDay = new Date()
   let days = []
   moment.locale('es')
-  const reservedDates = gcs_reserva_limpieza.limpiezas.map(date => {
+  const reservados = gcs_reserva_limpieza.limpiezas.map(date => {
     return {
       title: "Reservado",
       start: date,
       allDay: true
     }
   })
+  const holidays = gcs_reserva_limpieza.gcs_holidays.map(date => {
+    return {
+      title: "Feriado",
+      start: date,
+      allDay: true
+    }
+  })
+  const reservedDates = reservados.concat(holidays)
   const calendar = new Calendar(calendarEl, {
     plugins: [ dayGridPlugin, interactionPlugin, momentPlugin ],
     locale: esLocale,
@@ -48,18 +56,26 @@ export default function calendar(allSelects, allInputs) {
         allDay: true
       })
       const events = calendar.getEvents()
-      const myCleaningDays = events.filter( event => event.title !== "Reservado" )
+      const myCleaningDays = events.filter(event => {
+        if ( event.title !== "Reservado" && event.title !== "Feriado" ) {
+          return event
+        }
+      })
       days = myCleaningDays.map(event => event.startStr)
       summaryDates(days)
       getPriceData(allSelects, allInputs, days.length)
     },
     eventClick(info) {
       const events = calendar.getEvents()
-      const event = events.filter(event => event.startStr === info.event.startStr && event.title !== "Reservado")[0]
-      if ( info.event.title === "Reservado" ) return
+      const event = events.filter(event => event.startStr === info.event.startStr && event.title !== "Reservado" && event.title !== "Feriado")[0]
+      if ( info.event.title === "Reservado" && info.event.title === "Feriado" ) return
       event.remove()
       events.splice(events.indexOf(event), 1)
-      const myCleaningDays = events.filter( event => event.title !== "Reservado" )
+      const myCleaningDays = events.filter( event => {
+        if ( event.title !== "Reservado" && event.title !== "Feriado" ) {
+          return event
+        }
+      } )
       days = myCleaningDays.map(event => event.startStr)
       summaryDates(days)
       getPriceData(allSelects, allInputs, days.length)
