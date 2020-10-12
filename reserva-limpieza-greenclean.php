@@ -13,16 +13,16 @@
  */
 
 defined( 'ABSPATH' ) || exit;
-define ( 'GCS_Version', '3.6' );
+define ( 'GCS_Version', '3.7' );
 
-require __DIR__ . '/vendor/autoload.php';
+// require __DIR__ . '/vendor/autoload.php';
 
 include( plugin_dir_path( __FILE__ ) . 'array_flatten.php');
 include( plugin_dir_path( __FILE__ ) . 'get_gcs_holidays.php');
 include( plugin_dir_path( __FILE__ ) . 'get_cleaning_dates.php');
 include( plugin_dir_path( __FILE__ ) . 'register_my_session.php' );
 include( plugin_dir_path( __FILE__ ) . 'register-limpieza-cpt.php');
-include( plugin_dir_path( __FILE__ ) . 'svg-inliner.php' );
+// include( plugin_dir_path( __FILE__ ) . 'svg-inliner.php' );
 include( plugin_dir_path( __FILE__ ) . 'formulario-reserva.php' );
 include( plugin_dir_path( __FILE__ ) . 'reserva-endpoint.php' );
 include( plugin_dir_path( __FILE__ ) . 'pago-limpieza-completado.php' );
