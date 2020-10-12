@@ -65,6 +65,8 @@ document.addEventListener('DOMContentLoaded', () => {
     getHours(allSelects, allInputs)
     if (!general4horas.checked) {
       horario1pm.disabled = true
+    } else {
+      horario1pm.disabled = false
     }
   })
 
