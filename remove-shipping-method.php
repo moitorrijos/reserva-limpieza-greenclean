@@ -2,15 +2,13 @@
 
 function enqueue_shipping_method() {
   if ( function_exists( 'is_woocommerce') ) {
-    if ( is_checkout() ) {
-      wp_enqueue_script(
-        'remove_shipping_method',
-        plugin_dir_url(__FILE__) . 'dist/remove-shipping-method.js',
-        array(),
-        GCS_Version,
-        true
-      );
-    }
+    wp_enqueue_script(
+      'remove_shipping_method',
+      plugin_dir_url(__FILE__) . 'dist/remove-shipping-method.js',
+      array(),
+      GCS_Version,
+      true
+    );
   }
 }
 
