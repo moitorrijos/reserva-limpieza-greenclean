@@ -1,12 +1,13 @@
 const errorMessage = document.querySelector('.error-message-reserva')
 const horarioLimpieza = document.querySelectorAll('.horario-limpieza')
+const loadingAnimation = document.querySelector('.loading-checkout')
 
 export default function sendData(payButton, gcs_reserva_limpieza, allIds, daysCount, days) {
-  payButton.classList.add('sending-data')
+  loadingAnimation.style.display = 'block'
   if (errorMessage.classList.contains('animate-error-message')) errorMessage.classList.remove('animate-error-message')
   errorMessage.classList.add('hidden-button')
   function showErrorMessage() {
-    payButton.classList.remove('sending-data')
+    loadingAnimation.style.display = 'none'
     errorMessage.innerText = 'Ha ocurrido un error. Por favor inténtelo más tarde o contáctenos para ayudarle.'
     errorMessage.classList.remove('hidden-button')
     errorMessage.classList.add('animate-error-message')
