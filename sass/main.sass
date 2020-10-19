@@ -10,6 +10,7 @@ body #cms-page, #site-content
   width: auto !important
   max-width: 1400px !important
   padding: 0 1em
+  position: relative
 
   & *
     box-sizing: border-box
@@ -452,6 +453,29 @@ button.fc-button.fc-button-primary
 	animation-name: loadingSubmit
 	background-image: linear-gradient(to right, $secondary-color, lighten($secondary-color, 25%), $secondary-color)
 
+.loading-checkout
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  background-color: transparentize($white, 0.20)
+  display: flex
+  flex-direction: column
+  justify-content: flex-end
+  align-items: center
+  z-index: 20
+  
+  .loading-gif
+    width: 75px
+    height: 75px
+    background-image: url(../icons/loading.gif)
+    background-repeat: no-repeat
+    background-position: center center
+    background-size: 55px
+    background-color: $white
+    border-radius: 8px
+        
 @keyframes loadingSubmit
   0%
     background-position-x: 0
@@ -465,3 +489,4 @@ button.fc-button.fc-button-primary
     transform: translate3d(-10px, 0, 0)
   20%, 40%, 60%, 80%
     transform: translate3d(10px, 0, 0)
+

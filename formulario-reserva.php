@@ -7,7 +7,7 @@ function gcs_reserva_limpieza_func( $atts ){
   $gcs_holidays = get_gcs_holidays();
   $limpiezas = get_cleaning_dates();
   wp_enqueue_style( 'gcs_reserva_limpieza_css', plugin_dir_url(__FILE__).'css/main.css', array(), GCS_Version, 'screen' );
-  wp_enqueue_style( 'gcs_calendar_css', plugin_dir_url(__FILE__).'dist/calendar.css', array(), '02', 'screen' );
+  wp_enqueue_style( 'gcs_calendar_css', plugin_dir_url(__FILE__).'dist/calendar.css', array(), GCS_Version, 'screen' );
   wp_enqueue_script( 'gcs_reserva_limpieza_js', plugin_dir_url(__FILE__).'dist/main.js', array(), GCS_Version, true );
   wp_localize_script( 'gcs_reserva_limpieza_js', 'gcs_reserva_limpieza', array(
     'habitaciones'  => array(),
@@ -287,6 +287,9 @@ function gcs_reserva_limpieza_func( $atts ){
           <button id="ir-a-caja">Reservar</button>
           <p class="error-message-reserva hidden-button"></p>
         </div>
+      </div>
+      <div class="loading-checkout">
+        <div class="loading-gif"></div>
       </div>
     </div>
     <script>
