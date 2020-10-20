@@ -48,7 +48,7 @@ function get_cleaning_dates() {
   $duplicate_dates = array();
 
   // Set the reservation limit number
-  $reservation_limit = 3;
+  $reservation_limit = 5;
 
   $duplicates = array_count_values( $cleaning_dates );
   $duplicate_dates = array();
