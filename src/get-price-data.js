@@ -4,7 +4,7 @@ export default function getPriceData(allSelects, allInputs, quantity) {
   const total = document.getElementById('reserva-limpieza-total')
   const habitaciones = document.getElementById('cantidad-habitaciones')
   const banos = document.getElementById('cantidad-banos')
-  quantity = quantity ? parseInt(quantity) : 1
+  quantity = quantity ? parseInt(quantity) : 1 //Quantity of days (days.length)
   let optionsSelected = []
   let inputsChecked = []
 

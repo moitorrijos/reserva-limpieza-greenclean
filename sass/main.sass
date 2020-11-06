@@ -83,6 +83,10 @@ body #cms-page, #site-content
       outline: 0
       cursor: pointer
 
+      &[disabled]
+        cursor: not-allowed
+        opacity: 0.5
+
       &:hover
         background-color: darken($secondary-color, 5%)
 
@@ -427,6 +431,10 @@ button.fc-button.fc-button-primary
   display: flex
   align-items: center
   justify-content: center
+
+.terms-conditions-button
+  padding: 1rem 3rem
+  font-size: 0.9rem
 
 .error-message-reserva
   background-color: lighten($danger-color, 50%)

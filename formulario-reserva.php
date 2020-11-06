@@ -178,8 +178,7 @@ function gcs_reserva_limpieza_func( $atts ){
           </div>
           <h4>Servicios Extra</h4>
           <p>
-            Los servicios extras incurren costos adicionales. Para no incurrir en costo por
-            tiempo adicional recomendamos seleccionar un máximo de dos por día.
+            Los servicios extras incurren costos adicionales en la reserva de su limpieza residencial.
           </p>
           <div class="servicios-extras radios">
             <?php
@@ -284,7 +283,16 @@ function gcs_reserva_limpieza_func( $atts ){
             <p>Total:</p>
             <p id="reserva-limpieza-total"></p>
           </div>
-          <button id="ir-a-caja">Reservar</button>
+          <div class="terms-conditions-button">
+            <input type="checkbox" id="terminos-condiciones">
+            <label for="terminos-condiciones">
+              He leído y acepto los
+              <a href="https://greencservices.com/terminos-y-condiciones/">
+                términos y condiciones
+              </a>
+            </label>
+          </div>
+          <button id="ir-a-caja" disabled>Reservar</button>
           <p class="error-message-reserva hidden-button"></p>
         </div>
       </div>

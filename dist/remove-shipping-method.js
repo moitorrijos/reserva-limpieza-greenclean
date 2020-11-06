@@ -11,7 +11,7 @@
           if (shippingMethod.value === "advanced_flat_rate_shipping:6374") {
             woocommerceShipping.style.display = 'none'
           }
-        }, 3000)
+        }, 5000)
       }
     })
   }

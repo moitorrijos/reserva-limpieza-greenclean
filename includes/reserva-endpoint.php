@@ -16,9 +16,22 @@ function gcs_go_to_cart_func() {
 
   global $woocommerce;
 
+  
   $woocommerce->cart->empty_cart();
   foreach($all_ids as $product_id) {
     $woocommerce->cart->add_to_cart( $product_id, $quantity );
+  }
+  
+  $doslimpiezas = '2limpiezas';
+  $treslimpiezas = '3limpiezas';
+  $cuatrolimpiezas = '4limpiezas';
+
+  if ( (int)$quantity === 2 ) {
+    $woocommerce->cart->apply_coupon( $doslimpiezas ); //
+  } else if ( (int)$quantity === 3 ) {
+    $woocommerce->cart->apply_coupon( $treslimpiezas ); //
+  } else if ( (int)$quantity >= 4 ) {
+    $woocommerce->cart->apply_coupon( $cuatrolimpiezas ); //
   }
 
   if (is_wp_error( $woocommerce )) {

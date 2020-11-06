@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const payButton = document.getElementById('ir-a-caja')
   let days = []
   let allIds = []
+  const terminosCondiciones = document.getElementById('terminos-condiciones')
 
   calendar(allSelects, allInputs)
 
@@ -88,6 +89,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // The newDaysArray fires whenever there is a "mutation" in fechasList (ul.fechas element)
   observer.observe(fechasList, config);
+
+  // Toggle pay button when terms and conditions is accepted.
+  terminosCondiciones.addEventListener('change', () => {
+    if (terminosCondiciones.checked) {
+      payButton.disabled = false;
+    } else {
+      payButton.disabled = true;
+    }
+  })
 
   payButton.addEventListener('click', () => {
     if (days.length === 0 || allIds.length === 0) {
