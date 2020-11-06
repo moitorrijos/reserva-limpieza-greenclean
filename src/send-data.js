@@ -2,7 +2,7 @@ const errorMessage = document.querySelector('.error-message-reserva')
 const horarioLimpieza = document.querySelectorAll('.horario-limpieza')
 const loadingAnimation = document.querySelector('.loading-checkout')
 
-export default function sendData(payButton, gcs_reserva_limpieza, allIds, daysCount, days) {
+export default function sendData(gcs_reserva_limpieza, allIds, daysCount, days) {
   loadingAnimation.style.display = 'block'
   if (errorMessage.classList.contains('animate-error-message')) errorMessage.classList.remove('animate-error-message')
   errorMessage.classList.add('hidden-button')

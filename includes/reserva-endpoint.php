@@ -26,12 +26,15 @@ function gcs_go_to_cart_func() {
   $treslimpiezas = '3limpiezas';
   $cuatrolimpiezas = '4limpiezas';
 
-  if ( (int)$quantity === 2 ) {
-    $woocommerce->cart->apply_coupon( $doslimpiezas ); //
-  } else if ( (int)$quantity === 3 ) {
-    $woocommerce->cart->apply_coupon( $treslimpiezas ); //
-  } else if ( (int)$quantity >= 4 ) {
-    $woocommerce->cart->apply_coupon( $cuatrolimpiezas ); //
+  // Apply coupon based if Básica Eco Green 4 horas is selected 
+  if ( in_array( 6175, $all_ids ) ) {
+    if ( (int)$quantity === 2 ) {
+      $woocommerce->cart->apply_coupon( $doslimpiezas ); //
+    } else if ( (int)$quantity === 3 ) {
+      $woocommerce->cart->apply_coupon( $treslimpiezas ); //
+    } else if ( (int)$quantity >= 4 ) {
+      $woocommerce->cart->apply_coupon( $cuatrolimpiezas ); //
+    }
   }
 
   if (is_wp_error( $woocommerce )) {

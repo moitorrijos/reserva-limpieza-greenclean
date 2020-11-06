@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
       noDates()
       return
     } else {
-      sendData(payButton, gcs_reserva_limpieza, allIds, days.length, days)
+      sendData(gcs_reserva_limpieza, allIds, days.length, days)
     }
   })
 
